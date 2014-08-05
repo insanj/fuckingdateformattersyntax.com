@@ -1,125 +1,130 @@
 <html>
-<head>
-  <title>How Do I Format a Date in Swift?</title>
-  <style>
-    body {
-      background-color: #002b36;
-      color: #839496;
-      font-family: Lucida Grande, sans-serif;
-      font-size: 20px;
-      padding: 40px;
-      padding-bottom: 0;
-    }
+	<head>
+		<title>How Do I Format a Date in Swift?</title>
+		<style>
+			body {
+				background-color: #002b36;
+				color: #839496;
+				font-family: Lucida Grande, sans-serif;
+				font-size: 20px;
+				padding: 40px;
+				padding-bottom: 0;
+			}
 
-    strong {
-      color: #268bd2;
-    }
+			strong {
+				color: #268bd2;
+			}
 
-    h1 {
-      font-size: 40px;
-      margin-bottom: 1.5em;
-      text-align: center;
-    }
+			h1 {
+				font-size: 40px;
+				margin-bottom: 1.5em;
+				text-align: center;
+			}
 
-    h2 {
-      font-weight: normal;
-    }
+			h2 {
+				font-weight: normal;
+			}
 
-    .return {
-      color: #2aa198;
-    }
+			.return {
+				color: #2aa198;
+			}
 
-    .name {
-      color: #BC8800;
-    }
+			.name {
+				color: #BC8800;
+			}
 
-    .format-string {
-      color: #7C9F00;
-    }
+			.format-string {
+				color: #7C9F00;
+			}
 
-    .disclaimer {
-      line-height: 2em;
-    }
+			.disclaimer {
+				line-height: 2em;
+			}
 
-    code {
-      display: block;
-      font-family: Monaco, Menlo;
-      font-size: 20px;
-      margin-bottom: 3em;
-      margin-left: 40px;
-      margin-top: 1.5em;
-    }
+			code {
+				display: block;
+				font-family: Monaco, Menlo;
+				font-size: 20px;
+				margin-bottom: 3em;
+				margin-left: 40px;
+				margin-top: 1.5em;
+			}
+			code>span:first-child::before{
+				content: '"';
+			}
+			code>span:first-child::after{
+				content: '"';
+			}
 
-    footer {
-      font-size: 12px;
-      margin-top: 200px;
-      opacity: 0.4;
-      text-align: right;
-    }
+			footer {
+				font-size: 12px;
+				margin-top: 200px;
+				opacity: 0.4;
+				text-align: right;
+			}
 
-    a {
-      color: #0088D9;
-      text-decoration: none;
-    }
+			a {
+				color: #0088D9;
+				text-decoration: none;
+			}
 
-  </style>
+		</style>
+		<style media='print'>
+			body {
+				background-color: #FFFFFF;
+				font-size: 16px;
+				padding: 20px;
+			}
 
-  <style media='print'>
-    body {
-      background-color: #FFFFFF;
-      font-size: 16px;
-      padding: 20px;
-    }
+			h1 {
+				font-size: 28px;
+				margin-bottom: 1em;
+			}
 
-    h1 {
-      font-size: 28px;
-      margin-bottom: 1em;
-    }
+			code {
+				font-size: 16px;
+				margin-bottom: 2em;
+				margin-left: 20px;
+			}
 
-    code {
-      font-size: 16px;
-      margin-bottom: 2em;
-      margin-left: 20px;
-    }
+			footer {
+				font-size: 10px;
+				margin-top: 40px;
+			}
+		</style>
 
-    footer {
-      font-size: 10px;
-      margin-top: 40px;
-    }
-  </style>
+		<!--link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+		<link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196">
+		<link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"-->
+		</head>
 
-  <!--link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-  <link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196">
-  <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"-->
-</head>
+	<body>
+	<h1>How Do I Format a Date in Swift?</h1>
 
-<body>
-  <h1>How Do I Format a Date in Swift?</h1>
+	<div>
+	<h2>Hour:</h2>
+	<code>
+		<span class="format-string">HH</span>
+	</code>
+	</div>
 
-  <div>
-    <h2>Hour:</h2>
-    <code>
-    	"<span class="format-string">HH</span>"
-    </code>
-  </div>
+	<div class='disclaimer'>This site is not intended to be an exhaustive list of all possible formatting instances.</br>
+	If you find yourself needing syntax not listed here, please check the <a href="https://developer.apple.com/library/ios/documentation/cocoa/Conceptual/DataFormatting/Articles/dfDateFormatting10_4.html#//apple_ref/doc/uid/TP40002369-SW1">date formatting guide</a>.
 
-  <div class='disclaimer'>This site is not intended to be an exhaustive list of all possible formatting instances.</br>
-    If you find yourself needing syntax not listed here, please check the <a href="https://developer.apple.com/library/ios/documentation/cocoa/Conceptual/DataFormatting/Articles/dfDateFormatting10_4.html#//apple_ref/doc/uid/TP40002369-SW1">date formatting guide</a>.
+	</br></br>
+	<!--Unable to access this site due to the profanity in the URL? <strong><a href="http://goshdarnblocksyntax.com">http://goshdarndateformattersyntax.com</a></strong> is a more work-friendly mirror.-->
+	</div>
 
-  </br></br>
-    <!--Unable to access this site due to the profanity in the URL? <strong><a href="http://goshdarnblocksyntax.com">http://goshdarndateformattersyntax.com</a></strong> is a more work-friendly mirror.-->
-  </div>
-
-  <footer>By <a href="http://aehmlo.com">Aehmlo Lxaitn</a>, inspired by <a href="http://adam.hbang.ws">Adam</a>. Domain courtesy of <a href="http://haifisch.me">Dylan Laws</a></footer>
-</body>
+	<footer>By <a href="http://aehmlo.com">Aehmlo Lxaitn</a>, inspired by <a href="http://adam.hbang.ws">Adam</a>. Domain courtesy of <a href="http://haifisch.ninja">Haifisch</a></footer>
+	</body>
 </html>
